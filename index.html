@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mundo em Pauta — política, cultura geek, fé e tecnologia em artigos para ler com calma.">
+<title>Mundo em Pauta — Revista editorial</title>
+<style>
+:root{
+  --paper:#faf7f0;--ink:#24231f;--muted:#77736b;--line:#d9d2c6;--soft:#f1ece2;
+  --politica:#35658a;--geek:#7953a6;--gospel:#a57b16;--tecnologia:#27877e;
+  --serif:Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.65}
+button,input,a{font:inherit}
+a{color:inherit}
+button{cursor:pointer}
+.site-header{max-width:1200px;margin:auto;padding:22px 26px 0;text-align:center}
+.today{font:12px/1.4 Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.brand{font-size:clamp(2rem,5vw,3.8rem);font-weight:normal;letter-spacing:.17em;line-height:1.1;margin:0;text-transform:uppercase}
+.tagline{font-size:13px;color:var(--muted);letter-spacing:.04em;margin:9px 0 20px}
+.double-rule{height:5px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin-bottom:0}
+.nav-wrap{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(250,247,240,.97);z-index:10}
+.nav{max-width:1200px;margin:auto;padding:10px 26px;display:flex;align-items:center;justify-content:center;gap:clamp(12px,2.5vw,30px);flex-wrap:wrap}
+.nav a{font:12px Arial,sans-serif;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;padding:6px 0;border-bottom:1px solid transparent}
+.nav a:hover,.nav a.active{border-color:var(--ink)}
+.search{width:min(210px,100%);padding:8px 10px;border:1px solid var(--line);background:transparent;color:var(--ink);font:13px Arial,sans-serif;border-radius:0}
+main{max-width:1120px;margin:0 auto;padding:32px 26px 70px;min-height:65vh}
+.edition-line{display:flex;align-items:center;gap:14px;font:11px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 23px}
+.edition-line:after{content:"";height:1px;background:var(--line);flex:1}
+.featured{border-bottom:1px solid var(--line);padding-bottom:32px;margin-bottom:30px}
+.featured .image-frame{height:clamp(220px,43vw,440px)}
+.image-frame{position:relative;overflow:hidden;background:var(--soft);display:block}
+.image-frame img{width:100%;height:100%;display:block;object-fit:cover}
+.image-frame img.broken{display:none}
+.image-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:7px;color:#6d6a62;background:var(--placeholder,#e8e2d6);font:11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.image-placeholder .placeholder-mark{font:42px var(--serif);opacity:.55}
+.featured-copy{text-align:center;max-width:820px;margin:22px auto 0}
+.category{font:11px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;font-weight:bold;margin:0 0 10px;display:inline-block}
+.cat-Política{color:var(--politica)}.cat-Geek{color:var(--geek)}.cat-Gospel{color:var(--gospel)}.cat-Tecnologia{color:var(--tecnologia)}
+.featured h2{font-size:clamp(2rem,5vw,3.55rem);line-height:1.08;font-weight:normal;margin:0 auto 13px;max-width:800px}
+.summary{font-size:1.08rem;color:#555148;max-width:690px;margin:0 auto 13px}
+.date{font:11px Arial,sans-serif;letter-spacing:.06em;color:var(--muted)}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--ink);padding-bottom:8px;margin-bottom:20px}
+.section-head h2{font-size:1.5rem;font-weight:normal;margin:0}
+.section-head span{font:11px Arial,sans-serif;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.article-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 24px}
+.card{min-width:0;border-bottom:1px solid var(--line);padding-bottom:20px}
+.card .image-frame{height:165px;margin-bottom:14px}
+.card h3{font-size:1.42rem;line-height:1.2;font-weight:normal;margin:5px 0 9px}
+.card h3 a{text-decoration:none}
+.card h3 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.card .summary{font-size:.96rem;line-height:1.55;margin:0 0 12px;color:#5c584f}
+.read-more{font:11px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px}
+.page-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:normal;line-height:1.1;max-width:850px;margin:8px 0 13px}
+.article-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+.article-meta .date{border-left:1px solid var(--line);padding-left:14px}
+.article-hero{height:clamp(220px,48vw,490px);margin:22px 0 28px}
+.article-body{max-width:720px;margin:0 auto;font-size:1.14rem;line-height:1.9}
+.article-body p{margin:0 0 1.3em}
+.article-body p:first-of-type:first-letter{float:left;font-size:4.2em;line-height:.78;padding:.08em .12em 0 0}
+.article-body h3{font: bold 12px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;margin:2.5em 0 1em}
+.share-row{max-width:720px;margin:32px auto 0;padding-top:20px;border-top:1px solid var(--line)}
+.share-button{display:inline-block;padding:11px 16px;background:#267a50;color:white;text-decoration:none;font:12px Arial,sans-serif;letter-spacing:.04em}
+.about-copy{font-size:1.25rem;max-width:720px;line-height:1.9}
+.empty-state{padding:50px 10px;text-align:center;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+footer{border-top:3px double var(--ink);max-width:1120px;margin:0 auto;padding:20px 26px 32px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font:11px Arial,sans-serif;letter-spacing:.05em}
+.hidden{display:none!important}
+@media(max-width:760px){
+ .site-header{padding:20px 16px 0}.brand{letter-spacing:.1em}.nav{padding:10px 14px;gap:10px 18px}.search{width:100%;max-width:340px}
+ main{padding:25px 17px 50px}.article-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:25px 16px}
+ .card .image-frame{height:140px}.card h3{font-size:1.25rem}.card .summary{font-size:.9rem}
+}
+@media(max-width:480px){
+ .article-grid{grid-template-columns:1fr;gap:23px}.card .image-frame{height:205px}
+ .featured h2{font-size:2.15rem}.summary{font-size:1rem}.brand{font-size:1.9rem}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="today" id="today"></div>
+  <h1 class="brand">Mundo em Pauta</h1>
+  <p class="tagline">Ideias, histórias e perspectivas para entender o mundo.</p>
+  <div class="double-rule"></div>
+</header>
+<div class="nav-wrap">
+  <nav class="nav" aria-label="Navegação principal">
+    <a href="#/" data-route="/">Início</a>
+    <a href="#/categoria/Política" data-route="/categoria/Política">Política</a>
+    <a href="#/categoria/Geek" data-route="/categoria/Geek">Geek</a>
+    <a href="#/categoria/Gospel" data-route="/categoria/Gospel">Gospel</a>
+    <a href="#/categoria/Tecnologia" data-route="/categoria/Tecnologia">Tecnologia</a>
+    <a href="#/sobre" data-route="/sobre">Sobre</a>
+    <input id="search" class="search" type="search" placeholder="Buscar artigos..." aria-label="Buscar artigos por título ou texto">
+  </nav>
+</div>
+<main id="app" aria-live="polite"></main>
+<footer><span>© <span id="year"></span> Mundo em Pauta</span><span>Leitura com contexto. Conversa com respeito.</span></footer>
+<script>
+const articles = [
+{
+ id:"democracia-e-debate",cat:"Política",title:"Por que o debate público importa em uma democracia",date:"2026-10-28",
+ summary:"Entenda como diferentes opiniões, instituições e participação cidadã ajudam uma sociedade a tomar decisões coletivas.",
+ img:"politica.jpg",
+ body:`<p>Em uma democracia, as decisões que afetam a vida coletiva não deveriam depender apenas da vontade de uma pessoa ou de um pequeno grupo. O debate público permite que cidadãos, representantes, organizações e especialistas apresentem argumentos, questionem propostas e discutam caminhos possíveis. Ele não elimina os conflitos, mas cria formas pacíficas de lidar com eles.</p>
+ <h3>Mais do que votar</h3><p>O voto é uma parte essencial da participação política, mas a democracia não se resume ao dia da eleição. Acompanhar decisões do governo, conhecer projetos de lei, participar de consultas públicas e cobrar explicações dos representantes também são maneiras de exercer a cidadania. A imprensa, as universidades e as organizações da sociedade civil podem contribuir oferecendo informação e analisando políticas públicas.</p>
+ <p>Para que essa conversa funcione, é importante distinguir fatos verificáveis de opiniões. Uma pessoa pode defender determinada política por acreditar que ela terá bons resultados; outra pode discordar por avaliar os custos ou os riscos de maneira diferente. Comparar dados, fontes e consequências ajuda a tornar a discussão mais produtiva.</p>
+ <h3>Discordar sem desumanizar</h3><p>Debates políticos frequentemente envolvem valores, interesses e experiências distintas. Discordar de uma proposta não exige atacar quem a defende. Da mesma forma, ouvir um argumento não significa concordar com ele. Respeito não é ausência de crítica: é a disposição de discutir ideias sem transformar o adversário em inimigo.</p>
+ <p>Uma democracia saudável depende de instituições que funcionem, regras aplicadas de maneira justa e cidadãos dispostos a participar. Nenhum desses elementos resolve todos os problemas, mas juntos oferecem meios para corrigir erros, revisar decisões e buscar soluções coletivas.</p>`
+},
+{
+ id:"como-funcionam-politicas-publicas",cat:"Política",title:"Como uma política pública sai do papel",date:"2026-10-27",
+ summary:"Da identificação de um problema à avaliação dos resultados: conheça as etapas que podem transformar uma ideia em serviço público.",
+ img:"politicas-publicas.jpg",
+ body:`<p>Políticas públicas são ações e decisões organizadas para enfrentar questões que afetam a sociedade. Elas podem envolver saúde, educação, transporte, segurança, moradia, cultura ou meio ambiente. Embora a expressão pareça técnica, seus efeitos aparecem no cotidiano: em uma unidade de saúde, na manutenção de uma estrada ou no acesso a uma vaga escolar.</p>
+ <h3>Identificar e planejar</h3><p>O primeiro passo costuma ser reconhecer um problema e reunir informações sobre ele. Dados, pesquisas e relatos da população ajudam a compreender quem é afetado e quais fatores estão envolvidos. Em seguida, gestores e representantes podem comparar alternativas, estimar custos, definir objetivos e avaliar possíveis consequências. Uma proposta bem-intencionada ainda precisa de planejamento e recursos para funcionar.</p>
+ <p>Dependendo do assunto, a iniciativa pode exigir uma lei, uma decisão administrativa, orçamento específico ou cooperação entre diferentes níveis de governo. O processo varia conforme a política e as regras aplicáveis. Em uma federação como o Brasil, municípios, estados e União têm responsabilidades diferentes, que às vezes se complementam.</p>
+ <h3>Execução e avaliação</h3><p>Depois da aprovação e do planejamento, vem a implementação. É nessa etapa que entram equipes, contratos, equipamentos, atendimento e acompanhamento. Uma política pode enfrentar obstáculos como falta de pessoal, atraso de recursos, dificuldades logísticas ou comunicação insuficiente com o público.</p>
+ <p>A avaliação procura saber se os objetivos foram alcançados, quem foi beneficiado e quanto custou a iniciativa. Comparar resultados com metas e observar efeitos inesperados ajuda a decidir se a ação deve continuar, mudar ou ser substituída. Avaliar não é apenas procurar culpados: é produzir informações para melhorar decisões futuras.</p>
+ <p>Conhecer esse percurso ajuda o cidadão a formular perguntas mais precisas e acompanhar promessas públicas com critérios claros, sem depender apenas de slogans ou disputas partidárias.</p>`
+},
+{
+ id:"jogos-e-narrativas",cat:"Geek",title:"Por que os jogos também contam grandes histórias",date:"2026-10-26",
+ summary:"Jogos digitais combinam personagens, escolhas, som e participação para criar narrativas que vão além de assistir a uma história.",
+ img:"jogos-narrativas.jpg",
+ body:`<p>Durante muito tempo, muita gente tratou os jogos eletrônicos apenas como passatempo. Hoje, porém, diversos títulos mostram que esse meio também pode explorar temas complexos, construir personagens marcantes e provocar emoções. A diferença central é que, em um jogo, a pessoa não apenas acompanha os acontecimentos: ela participa deles por meio de ações, escolhas e desafios.</p>
+ <h3>Uma história que se joga</h3><p>Em um filme, o público normalmente segue uma sequência definida de cenas. Em muitos jogos, o ritmo depende também da exploração e das decisões de quem joga. Um caminho pode revelar informações escondidas; uma escolha pode mudar a relação entre personagens; uma missão opcional pode ampliar o contexto de um mundo fictício. Mesmo quando o final é fixo, a experiência de chegar até ele pode ser pessoal.</p>
+ <p>Isso não significa que todo jogo precise ter uma narrativa elaborada. Alguns se concentram na competição, na estratégia, na música ou na habilidade. Outros misturam esses elementos com enredos detalhados. O formato permite que cada obra encontre seu próprio equilíbrio.</p>
+ <h3>Personagens e mundos</h3><p>Ambientes bem construídos comunicam muito sem precisar explicar tudo em diálogos. Uma cidade abandonada, objetos deixados em uma casa ou mudanças na trilha sonora podem sugerir o que aconteceu antes da chegada do jogador. Esse tipo de narrativa ambiental convida a observar e montar as peças.</p>
+ <p>Os jogos também podem tratar de amizade, perda, coragem, responsabilidade e consequências. A interatividade torna essas questões particulares: a pessoa precisa agir dentro das regras daquele universo, mesmo quando não existe uma opção perfeita.</p>
+ <p>Como qualquer forma de arte, os jogos têm estilos e qualidades diferentes. Olhar para eles como experiências narrativas não exige abandonar a diversão; permite perceber como imagem, som, mecânica e escolha podem trabalhar juntos para contar algo memorável.</p>`
+},
+{
+ id:"anime-e-cultura-global",cat:"Geek",title:"Como os animes conquistaram públicos pelo mundo",date:"2026-10-25",
+ summary:"A circulação internacional, as comunidades de fãs e a variedade de gêneros ajudam a explicar a presença global da animação japonesa.",
+ img:"anime.jpg",
+ body:`<p>Os animes deixaram de ser uma descoberta restrita a determinados canais e comunidades. Hoje, séries e filmes de animação japonesa circulam por plataformas digitais, cinemas, lojas, convenções e redes sociais. Esse alcance foi construído ao longo de décadas e envolve tanto obras populares quanto produções voltadas a públicos específicos.</p>
+ <h3>Variedade de histórias</h3><p>Uma razão para a expansão é a diversidade de temas. Existem aventuras de fantasia, dramas familiares, comédias românticas, histórias esportivas, ficção científica, suspense e narrativas históricas. A palavra “anime” não descreve um único gênero nem garante que uma obra seja destinada a crianças. Cada título tem sua proposta, faixa de público e classificação.</p>
+ <p>Personagens que enfrentam dificuldades, desenvolvem habilidades ou procuram seu lugar no mundo podem criar vínculos fortes com quem assiste. Ao mesmo tempo, cenários estilizados, trilhas sonoras e escolhas visuais tornam muitas produções reconhecíveis. A combinação varia bastante entre estúdios, diretores e épocas.</p>
+ <h3>Fãs que aproximam culturas</h3><p>Comunidades de fãs ajudam a divulgar obras por meio de conversas, análises, ilustrações, cosplay e recomendações. A internet facilita o encontro entre pessoas de países diferentes, embora questões de licenciamento, tradução e disponibilidade ainda influenciem o acesso legal a determinados títulos.</p>
+ <p>O interesse por animes também pode despertar curiosidade sobre a língua japonesa, a culinária, a música e aspectos da sociedade do Japão. É importante, no entanto, lembrar que uma obra de ficção não representa sozinha uma cultura inteira. Histórias são criações artísticas, e podem exagerar, reinventar ou misturar referências.</p>
+ <p>O sucesso internacional da animação japonesa mostra como narrativas locais podem conversar com experiências humanas amplas. Para descobrir novas obras, vale variar gêneros, consultar classificações indicativas e dar espaço a produções fora das listas mais famosas.</p>`
+},
+{
+ id:"fe-no-cotidiano",cat:"Gospel",title:"Fé no cotidiano: pequenas escolhas que expressam valores",date:"2026-10-24",
+ summary:"A espiritualidade também se revela nas atitudes comuns: na maneira de tratar pessoas, cumprir compromissos e servir à comunidade.",
+ img:"fe-cotidiano.jpg",
+ body:`<p>Quando se fala em fé, é comum pensar em cultos, orações, músicas e momentos especiais. Para muitas pessoas cristãs, porém, a vida espiritual também se expressa nas decisões simples de cada dia. A maneira de conversar, trabalhar, cuidar da família e tratar quem pensa diferente pode revelar os valores que orientam uma pessoa.</p>
+ <h3>Princípios colocados em prática</h3><p>Na Bíblia, a carta de Tiago relaciona a fé à prática e chama atenção para a importância de ações coerentes com aquilo que se professa (Tiago 2:17). Essa passagem não precisa ser entendida como uma competição para provar quem é mais religioso. Ela convida à reflexão sobre a relação entre convicções e comportamento.</p>
+ <p>Agir com honestidade quando ninguém está observando, cumprir uma promessa possível, admitir um erro e oferecer ajuda sem esperar reconhecimento são exemplos cotidianos. Essas atitudes não eliminam falhas nem tornam alguém perfeito. Elas fazem parte de um processo contínuo de amadurecimento, que inclui reconhecer limites e buscar reparação quando necessário.</p>
+ <h3>Uma fé que acolhe</h3><p>O cuidado com o próximo pode aparecer em gestos discretos: ouvir sem interromper, visitar alguém que está isolado, apoiar uma família em dificuldade ou participar de uma iniciativa comunitária. Nem toda necessidade se resolve individualmente, e ações organizadas podem ampliar o alcance da ajuda.</p>
+ <p>Também é importante lembrar que pessoas vivem circunstâncias diferentes. Acolher não significa concordar com todas as escolhas de alguém; significa tratar a pessoa com dignidade, sem humilhação. O diálogo respeitoso permite expressar convicções sem transformar a fé em instrumento de pressão.</p>
+ <p>Uma rotina espiritual pode incluir oração, leitura bíblica, comunhão e serviço. O valor desses hábitos não está em construir uma aparência impecável, mas em ajudar a orientar a vida. Pequenas escolhas repetidas não resolvem todos os desafios, porém podem tornar os princípios mais visíveis no mundo real.</p>`
+},
+{
+ id:"esperanca-em-tempos-dificeis",cat:"Gospel",title:"Esperança em tempos difíceis: entre a oração e a ação",date:"2026-10-23",
+ summary:"A esperança cristã pode oferecer consolo e perspectiva, sem ignorar a dor nem substituir atitudes práticas diante dos problemas.",
+ img:"esperanca.jpg",
+ body:`<p>Passar por um período difícil pode afetar a rotina, os relacionamentos e a maneira como alguém enxerga o futuro. Para cristãos, a esperança é frequentemente alimentada pela confiança em Deus e pela leitura das Escrituras. Essa esperança, porém, não precisa significar negar a tristeza ou fingir que os problemas não existem.</p>
+ <h3>Reconhecer a realidade</h3><p>Os textos bíblicos incluem lamentos, dúvidas e pedidos de socorro. Os Salmos, por exemplo, mostram pessoas que falam com sinceridade sobre medo, injustiça e sofrimento. Essa variedade ajuda a lembrar que expressar dor não é necessariamente sinal de ausência de fé. A oração pode ser um espaço para apresentar sentimentos com honestidade.</p>
+ <p>Em Romanos 12:15, Paulo orienta os cristãos a se alegrarem com os que se alegram e chorarem com os que choram. A passagem aponta para uma comunidade que não apressa o sofrimento alheio nem oferece respostas automáticas. Às vezes, estar presente e ouvir com atenção é uma forma importante de cuidado.</p>
+ <h3>Esperança que se movimenta</h3><p>Confiar em Deus não impede a busca por soluções concretas. Pedir ajuda, procurar orientação profissional, organizar as finanças, conversar com alguém de confiança ou dividir uma tarefa difícil podem ser passos necessários. Em situações de sofrimento emocional intenso, buscar apoio qualificado é compatível com cuidar da própria vida.</p>
+ <p>Comunidades de fé também podem oferecer companhia, apoio material e espaços de acolhimento. Esse suporte é mais responsável quando respeita a privacidade, não promete resultados garantidos e não culpa quem continua enfrentando dificuldades.</p>
+ <p>A esperança não determina exatamente quando um problema será resolvido. Ela pode ajudar alguém a atravessar o presente com sentido, apoio e disposição para dar o próximo passo. Em vez de exigir que a pessoa esteja sempre forte, uma esperança madura permite reconhecer a fragilidade e continuar buscando cuidado e caminhos possíveis.</p>`
+},
+{
+ id:"inteligencia-artificial-no-trabalho",cat:"Tecnologia",title:"Inteligência artificial no trabalho: ferramenta, não solução mágica",date:"2026-10-22",
+ summary:"Assistentes digitais podem acelerar tarefas, mas seus resultados precisam de revisão, contexto e responsabilidade humana.",
+ img:"ia-trabalho.jpg",
+ body:`<p>Ferramentas de inteligência artificial já conseguem ajudar em atividades como resumir textos, organizar ideias, sugerir fórmulas, revisar rascunhos e responder perguntas. Para trabalhadores e pequenos negócios, isso pode reduzir o tempo gasto em tarefas repetitivas. Ainda assim, usar IA não significa que todo resultado estará correto ou pronto para ser aplicado.</p>
+ <h3>O que ela faz bem</h3><p>Um assistente pode ser útil como ponto de partida: estruturar uma apresentação, propor opções de título, transformar anotações em uma lista ou explicar um conceito em linguagem simples. Em tarefas bem delimitadas, ele pode ajudar a explorar possibilidades com rapidez. O resultado melhora quando a pessoa oferece instruções claras e confere se a resposta atende ao objetivo real.</p>
+ <p>Há limitações importantes. Sistemas generativos podem apresentar informações incorretas com aparência convincente, interpretar mal um pedido ou não ter acesso a dados atualizados. Por isso, números, referências, regras, cálculos e informações sensíveis precisam de verificação independente. A ferramenta também pode refletir vieses presentes nos dados e nos métodos usados para desenvolvê-la.</p>
+ <h3>Privacidade e responsabilidade</h3><p>Antes de inserir conteúdo em uma plataforma, é prudente verificar suas condições de uso e evitar compartilhar senhas, dados pessoais, informações de clientes ou documentos confidenciais sem autorização. Empresas podem estabelecer regras próprias sobre quais ferramentas são permitidas e como os resultados devem ser revisados.</p>
+ <p>O julgamento humano continua essencial para compreender contexto, avaliar consequências e assumir responsabilidade pelas decisões. Em áreas de maior risco, a revisão por profissionais qualificados é especialmente importante.</p>
+ <p>Uma boa maneira de começar é escolher uma tarefa pequena, comparar o tempo e a qualidade com o método habitual e registrar os erros encontrados. Assim, a IA deixa de ser uma promessa abstrata e passa a ser avaliada como qualquer outra ferramenta: pelo benefício real, pelo custo e pelos cuidados necessários.</p>`
+},
+{
+ id:"seguranca-digital-basica",cat:"Tecnologia",title:"Cinco hábitos simples para melhorar sua segurança digital",date:"2026-10-21",
+ summary:"Senhas únicas, autenticação em duas etapas e atenção a mensagens suspeitas ajudam a proteger contas e dispositivos.",
+ img:"seguranca-digital.jpg",
+ body:`<p>Grande parte da segurança digital começa com hábitos comuns, não com conhecimentos técnicos avançados. Contas de e-mail, redes sociais, bancos e serviços de compras guardam informações importantes. Proteger esses acessos reduz o risco de invasões, golpes e perda de dados. Nenhuma medida oferece proteção absoluta, mas várias camadas tornam os ataques mais difíceis.</p>
+ <h3>Senhas e autenticação</h3><p>Use uma senha diferente para cada serviço importante. Se uma senha for exposta em um vazamento, a reutilização pode permitir que criminosos tentem acessar outras contas. Um gerenciador de senhas confiável pode ajudar a criar e guardar combinações longas sem depender da memória. Sempre que possível, ative a autenticação em duas etapas, que exige uma segunda confirmação além da senha.</p>
+ <p>Proteja primeiro o e-mail principal, pois ele costuma ser usado para recuperar outros acessos. Mantenha atualizados os dados de recuperação e desconfie de solicitações inesperadas de códigos de verificação. Não compartilhe esses códigos, mesmo que a mensagem pareça vir de uma empresa conhecida.</p>
+ <h3>Links, atualizações e cópias</h3><p>Mensagens fraudulentas podem imitar bancos, lojas, serviços de entrega ou pessoas conhecidas. Antes de clicar, confira o endereço do remetente e procure sinais de urgência exagerada, ameaças ou ofertas improváveis. Em caso de dúvida, entre no serviço digitando o endereço oficial ou usando o aplicativo instalado, em vez de seguir o link recebido.</p>
+ <p>Atualizações corrigem falhas e devem ser instaladas em sistemas, navegadores e aplicativos. Também vale manter cópias de segurança de arquivos importantes em um local separado do dispositivo principal. Assim, uma falha ou perda não precisa significar a perda definitiva dos dados.</p>
+ <p>Por fim, bloqueie seus aparelhos com senha ou biometria e revise as permissões dos aplicativos. Segurança digital não é um único programa: é a combinação de escolhas consistentes, atenção e preparação para recuperar o acesso quando algo dá errado.</p>`
+}
+];
+
+// Para publicar um novo artigo, copie um objeto abaixo e acrescente-o à lista.
+// Preencha id (único), cat, title, date (AAAA-MM-DD), summary, img e body.
+// Em img, use o nome do arquivo local, por exemplo: "meu-artigo.jpg".
+// Em body, escreva HTML com parágrafos <p> e subtítulos <h3>.
+const app=document.getElementById("app");
+const searchInput=document.getElementById("search");
+const colors={"Política":"#dce7ee","Geek":"#e9e0f0","Gospel":"#f0e6c9","Tecnologia":"#d8ebe6"};
+const symbols={"Política":"§","Geek":"✦","Gospel":"✧","Tecnologia":"⌘"};
+const dateFormat=new Intl.DateTimeFormat("pt-BR",{day:"2-digit",month:"long",year:"numeric"});
+const shortDate=new Intl.DateTimeFormat("pt-BR",{day:"2-digit",month:"short",year:"numeric"});
+document.getElementById("today").textContent=new Intl.DateTimeFormat("pt-BR",{weekday:"long",day:"numeric",month:"long",year:"numeric"}).format(new Date());
+document.getElementById("year").textContent=new Date().getFullYear();
+
+function imageBlock(article,extraClass=""){
+ const frame=document.createElement("div");frame.className="image-frame "+extraClass;
+ frame.style.setProperty("--placeholder",colors[article.cat]||"#e8e2d6");
+ const fallback=document.createElement("div");fallback.className="image-placeholder";
+ fallback.innerHTML=`<span class="placeholder-mark">${symbols[article.cat]||"✦"}</span><span>${escapeHTML(article.cat||"Mundo em Pauta")}</span>`;
+ frame.appendChild(fallback);
+ if(article.img){
+  const img=document.createElement("img");img.src=article.img;img.alt=article.title;img.loading="lazy";
+  img.addEventListener("load",()=>fallback.classList.add("hidden"));
+  img.addEventListener("error",()=>{img.classList.add("broken");fallback.classList.remove("hidden")});
+  frame.appendChild(img);
+ }
+ return frame;
+}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function fmtDate(date){const d=new Date(date+"T12:00:00");return isNaN(d)?date:dateFormat.format(d);}
+function card(article){
+ const el=document.createElement("article");el.className="card";
+ const link=document.createElement("a");link.href="#/artigo/"+encodeURIComponent(article.id);link.setAttribute("aria-label","Ler: "+article.title);
+ link.appendChild(imageBlock(article));el.appendChild(link);
+ el.insertAdjacentHTML("beforeend",`<div class="category cat-${escapeHTML(article.cat)}">${escapeHTML(article.cat)}</div><h3><a href="#/artigo/${encodeURIComponent(article.id)}">${escapeHTML(article.title)}</a></h3><p class="summary">${escapeHTML(article.summary)}</p><div class="date">${shortDate.format(new Date(article.date+"T12:00:00"))}</div><p><a class="read-more" href="#/artigo/${encodeURIComponent(article.id)}">Continuar lendo →</a></p>`);
+ return el;
+}
+function feature(article){
+ const section=document.createElement("article");section.className="featured";
+ const link=document.createElement("a");link.href="#/artigo/"+encodeURIComponent(article.id);link.appendChild(imageBlock(article));section.appendChild(link);
+ const copy=document.createElement("div");copy.className="featured-copy";
+ copy.innerHTML=`<div class="category cat-${escapeHTML(article.cat)}">${escapeHTML(article.cat)}</div><h2><a href="#/artigo/${encodeURIComponent(article.id)}" style="text-decoration:none">${escapeHTML(article.title)}</a></h2><p class="summary">${escapeHTML(article.summary)}</p><div class="date">${fmtDate(article.date)}</div>`;
+ section.appendChild(copy);return section;
+}
+function renderHome(list,heading="Últimas leituras"){
+ app.innerHTML="";
+ if(!searchInput.value.trim()&&heading==="Últimas leituras"&&list.length){
+  app.insertAdjacentHTML("beforeend",'<div class="edition-line">A edição de hoje</div>');
+  app.appendChild(feature(list[0]));list=list.slice(1);
+ }else app.insertAdjacentHTML("beforeend",`<div class="edition-line">${escapeHTML(heading)}</div>`);
+ const head=document.createElement("div");head.className="section-head";head.innerHTML=`<h2>${escapeHTML(heading==="Últimas leituras"?"Mais para ler":heading)}</h2><span>${list.length} ${list.length===1?"artigo":"artigos"}</span>`;app.appendChild(head);
+ if(!list.length){app.insertAdjacentHTML("beforeend",'<div class="empty-state">Nenhum artigo encontrado. Experimente outro termo de busca.</div>');return;}
+ const grid=document.createElement("div");grid.className="article-grid";list.forEach(a=>grid.appendChild(card(a)));app.appendChild(grid);
+}
+function renderArticle(article){
+ app.innerHTML="";
+ const top=document.createElement("article");
+ top.innerHTML=`<div class="category cat-${escapeHTML(article.cat)}">${escapeHTML(article.cat)}</div><h1 class="page-title">${escapeHTML(article.title)}</h1><div class="article-meta"><span class="date">${fmtDate(article.date)}</span><span class="date">Mundo em Pauta · Leitura editorial</span></div>`;
+ top.appendChild(imageBlock(article,"article-hero"));app.appendChild(top);
+ const body=document.createElement("div");body.className="article-body";body.innerHTML=article.body;app.appendChild(body);
+ const share=document.createElement("div");share.className="share-row";
+ const url=location.href;const text=encodeURIComponent(article.title+" — "+url);
+ share.innerHTML=`<a class="share-button" href="https://wa.me/?text=${text}" target="_blank" rel="noopener noreferrer">Compartilhar no WhatsApp ↗</a>`;
+ app.appendChild(share);
+ const related=articles.filter(a=>a.cat===article.cat&&a.id!==article.id).slice(0,2);
+ if(related.length){const h=document.createElement("div");h.className="section-head";h.style.marginTop="45px";h.innerHTML="<h2>Leia também</h2>";app.appendChild(h);const grid=document.createElement("div");grid.className="article-grid";related.forEach(a=>grid.appendChild(card(a)));app.appendChild(grid);}
+}
+function renderAbout(){
+ app.innerHTML=`<div class="edition-line">Sobre a publicação</div><h1 class="page-title">Um espaço para olhar o mundo com curiosidade.</h1><div class="about-copy"><p>O <strong>Mundo em Pauta</strong> é uma revista digital independente dedicada a ideias, histórias e assuntos que fazem parte das nossas conversas. Reunimos artigos sobre política, cultura geek, fé cristã e tecnologia, sempre com linguagem acessível e atenção ao contexto.</p><p>Nosso objetivo é estimular a curiosidade, facilitar o acesso à informação e abrir espaço para reflexão. Em temas de debate público, buscamos explicar conceitos sem tomar partido; em cultura, fé e tecnologia, queremos apresentar ideias de forma clara e respeitosa.</p><p>Leia no seu ritmo, explore diferentes temas e continue fazendo perguntas.</p></div>`;
+}
+function currentRoute(){let route=decodeURIComponent(location.hash.slice(1)||"/");return route||"/";}
+function render(){
+ const route=currentRoute();document.querySelectorAll(".nav a").forEach(a=>a.classList.toggle("active",decodeURIComponent(a.dataset.route)===route));
+ const q=searchInput.value.trim().toLocaleLowerCase("pt-BR");
+ if(q){
+  const filtered=articles.filter(a=>(a.title+" "+a.summary+" "+a.cat+" "+a.body.replace(/<[^>]*>/g," ")).toLocaleLowerCase("pt-BR").includes(q));
+  renderHome(filtered,"Resultados da busca");return;
+ }
+ if(route.startsWith("/artigo/")){
+  const id=route.slice("/artigo/".length);const article=articles.find(a=>a.id===id);
+  if(article){renderArticle(article);return;}
+  app.innerHTML='<div class="empty-state">Este artigo não foi encontrado. <a href="#/">Voltar ao início</a></div>';return;
+ }
+ if(route==="/sobre"){renderAbout();return;}
+ if(route.startsWith("/categoria/")){
+  const cat=route.slice("/categoria/".length);const filtered=articles.filter(a=>a.cat.toLocaleLowerCase("pt-BR")===cat.toLocaleLowerCase("pt-BR"));
+  renderHome(filtered,cat);return;
+ }
+ renderHome([...articles],"Últimas leituras");
+}
+searchInput.addEventListener("input",render);
+window.addEventListener("hashchange",render);
+render();
+</script>
+</body>
+</html>
